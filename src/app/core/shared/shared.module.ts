@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   ],
   exports: [],
   declarations: [],
-  providers: [],
+  providers: []
 })
 
 

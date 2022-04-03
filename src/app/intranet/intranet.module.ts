@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { IntranetRoutingModule } from './intranet-routing.module';
+import { IntranetComponent } from './intranet.component';
 
 
 @NgModule({
+  declarations: [
+    IntranetComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    IntranetRoutingModule
   ],
   exports: [],
-  declarations: [],
-  providers: [],
+  providers: []
 })
-
-
-
 export class IntranetModule { }
