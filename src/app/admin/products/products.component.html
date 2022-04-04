@@ -1,74 +1,8 @@
-<form>
-
-
-    <div class="row d-flex justify-content-center align-items-center mb-4">
-      <div class="col-xl-4">
-          <label for="name-product-input" class="form-label">Nombre Del Producto</label>
-          <input type="text" class="form-control" id="name-product-input" placeholder="Juego 'X', Consola 'X', Accesorio 'X'">
-      </div>
-      <div class="col-xl-4">
-          <label for="price-product-input" class="form-label">Precio Del Producto</label>
-          <div class="input-group p-0" for="price-product-input">
-            <span class="input-group-text input-group-text-right">$</span>
-            <input type="number" class="form-control input-group-text-sides text-end" aria-label="Precio En MXN">
-            <span class="input-group-text input-group-text-left">.99</span>
-          </div>
-      </div>
-      <div class="col-xl-4">
-          <label for="quantity-product-input" class="form-label">Cantidad</label>
-          <input type="number" class="form-control" id="quantity-product-input" min="1">
-      </div>
-    </div>
-
-    <div class="row d-flex justify-content-center align-items-center mb-4">
-      <div class="col-xl-4">
-        <label for="state-product-input" class="form-label">Estado Del Producto</label>
-        <select class="form-select" aria-label="Estado Del Producto" id="state-product-input">
-          <option class="text-center"selected>...</option>
-          <option class="text-center"value="OnSale">En Venta</option>
-          <option class="text-center"value="PreSale">Preventa</option>
-        </select>
-      </div>
-      <div class="col-xl-4">
-        <label for="plataform-product-input" class="form-label">Plataforma Del Producto</label>
-        <select class="form-select" aria-label="Plataforma Del Producto" id="plataform-product-input">
-          <option class="text-center"selected>...</option>
-          <option class="text-center"value="xbox">Xbox</option>
-          <option class="text-center"value="playstation">PlayStation</option>
-          <option class="text-center"value="nintendo">Nintendo</option>
-          <option class="text-center"value="others">Otros</option>
-        </select>
-      </div>
-      <div class="col-xl-4">
-        <label for="category-product-input" class="form-label">Categoría Del Producto</label>
-        <select class="form-select" aria-label="Categoría Del Producto" id="category-product-input">
-          <option class="text-center"selected>...</option>
-          <option class="text-center"value="game">Videojuego</option>
-          <option class="text-center"value="console">Consola</option>
-          <option class="text-center"value="accessory">Accesorio</option>
-          <option class="text-center"value="digital">Digitales</option>
-          <option class="text-center"value="prepay">Prepaid</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="row d-flex justify-content-center align-items-center mb-4">
-      <div class="col-12">
-        <label for="image-product-input" class="form-label">Imagen</label>
-        <input type="file" class="form-control" id="image-product-input" aria-describedby="Upload Image" aria-label="Upload Image">
-      </div>
-    </div>
-
-    <div class="row d-flex justify-content-center align-items-center mb-4">
-      <div class="col-12">
-        <label for="description-product-input" class="form-label">Descripción</label>
-        <textarea class="form-control" id="description-product-input" rows="8"></textarea>
-      </div>
-    </div>
-
-    <div class="d-grid gap-2">
-      <button type="submit" class="btn btn-success btn-lg">Agregar</button>
-    </div>
-
-
-</form>
+<div class="row gx-5">
+  <div class="col-xl-4">
+    <app-add-product></app-add-product>
+  </div>
+  <div class="col-xl-8">
+    <app-list-products></app-list-products>
+  </div>
+</div>

@@ -1,6 +1,10 @@
 /*Forms*/
 .form-label{
     font-weight: 700;
+    white-space: nowrap;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .input-group-text-sides{
     border-left: none !important;
@@ -15,3 +19,6 @@
 .input-group-text-left{
     border-left: none !important;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
