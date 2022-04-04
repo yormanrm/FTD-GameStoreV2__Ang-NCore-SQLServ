@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 
@@ -16,14 +17,16 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     RouterModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTabsModule
   ],
   exports: [
     HttpClientModule,
     RouterModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTabsModule
   ],
   declarations: [],
   providers: []

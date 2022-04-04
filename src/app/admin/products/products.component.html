@@ -1,8 +1,20 @@
-<div class="row gx-5">
-  <div class="col-xl-4">
-    <app-add-product></app-add-product>
-  </div>
-  <div class="col-xl-8">
-    <app-list-products></app-list-products>
-  </div>
-</div>
+<mat-tab-group mat-align-tabs="center" dynamicHeight>
+  <mat-tab label="Lista De Productos">
+    <ng-template matTabContent>
+      <div class="row d-flex justify-content-center align-items-center my-5 mx-2">
+        <div class="col-12">
+          <app-list-products></app-list-products>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Agregar Producto">
+    <ng-template matTabContent>
+      <div class="row d-flex justify-content-center align-items-center m-5">
+        <div class="col-xl-8">
+          <app-add-product></app-add-product>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
