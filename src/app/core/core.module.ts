@@ -10,7 +10,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule
   ],
   exports: [
-      SharedModule
+    SharedModule
   ],
   declarations: [],
   providers: [],

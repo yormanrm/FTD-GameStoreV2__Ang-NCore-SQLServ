@@ -14,6 +14,9 @@ import { IntranetComponent } from './intranet.component';
     IntranetRoutingModule
   ],
   exports: [],
-  providers: []
+  providers: [],
 })
+
+
+
 export class IntranetModule { }

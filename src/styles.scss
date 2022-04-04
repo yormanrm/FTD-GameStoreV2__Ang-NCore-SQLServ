@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+/*Forms*/
+.form-label{
+    font-weight: 700;
+}
+.input-group-text-sides{
+    border-left: none !important;
+    border-right: none !important;
+}
+.input-group-text{
+    background: none !important;
+}
+.input-group-text-right{
+    border-right: none !important;
+}
+.input-group-text-left{
+    border-left: none !important;
+}
