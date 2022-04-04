@@ -1,7 +1,14 @@
-import { Component, OnInit, AfterViewInit, ViewChild, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, OnDestroy} from '@angular/core';
+
+
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+
+
 import { PeriodicElement } from 'src/app/core/shared/models/element.model';
+
+import { ToastrService } from 'ngx-toastr';
+
 
 
 @Component({
@@ -9,13 +16,13 @@ import { PeriodicElement } from 'src/app/core/shared/models/element.model';
   templateUrl: './list-products.component.html',
   styleUrls: ['./list-products.component.scss']
 })
-export class ListProductsComponent implements OnInit, OnDestroy {
+export class ListProductsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   displayedColumns: string[] = ['position', 'name', 'description', 'price', 'quantity', 'state', 'platform', 'category', 'image', 'actions'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
-  constructor() { }
+  constructor(private _toastr:ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -33,7 +40,7 @@ export class ListProductsComponent implements OnInit, OnDestroy {
   }
 
   deleteProduct(){
-
+    this._toastr.error('El Producto Ha Sido Eliminado Correctamente', 'Producto Eliminado');
   }
 
 }
