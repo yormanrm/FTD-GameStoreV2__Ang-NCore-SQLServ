@@ -1,0 +1,9 @@
+<div class="row d-flex justify-content-center align-items-center mb-4">
+  <div class="col-6">
+    <label class="form-label">Imagen</label>
+    <input type="file" #file class="form-control" accept='image/*' id="image-product-input" (change)="uploadFile(file.files)">
+  </div>
+  <div class="col-6">
+    <img [src]="imagePath" alt="profile picture" style="width:150px; height:150px;" class="img-fluid img-thumbnail">
+  </div>
+</div>

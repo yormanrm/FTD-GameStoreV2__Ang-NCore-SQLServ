@@ -52,12 +52,7 @@
     </div>
   </div>
 
-  <div class="row d-flex justify-content-center align-items-center mb-4">
-    <div class="col-12">
-      <label for="image-product-input" class="form-label">Imagen</label>
-      <input type="file" class="form-control" id="image-product-input" aria-describedby="Upload Image" aria-label="Upload Image" formControlName="image">
-    </div>
-  </div>
+  <app-upload-image (onUploadFinished)="uploadFinished($event)"></app-upload-image>
 
   <div class="row d-flex justify-content-center align-items-center mb-4">
     <div class="col-12">
@@ -67,7 +62,7 @@
   </div>
 
   <div class="d-grid gap-2">
-    <button type="submit" class="btn btn-success btn-lg">Agregar</button>
+    <button type="submit" class="btn btn-success btn-lg" [disabled]="addForm.invalid">Agregar</button>
   </div>
 
 

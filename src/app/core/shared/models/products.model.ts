@@ -1,5 +1,5 @@
-export interface PeriodicElement {
-  position: number;
+export interface Products {
+  id: number;
   name: string;
   description: string;
   price: number;
@@ -7,5 +7,5 @@ export interface PeriodicElement {
   state: string;
   platform: string;
   category: string;
-  image: any;
+  image: string;
 }
