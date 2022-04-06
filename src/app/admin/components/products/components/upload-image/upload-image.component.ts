@@ -1,7 +1,4 @@
-import { HttpEventType } from '@angular/common/http';
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
-import { Subscription } from 'rxjs/internal/Subscription';
-import { ProductsService } from 'src/app/admin/services/products/products.service';
 
 @Component({
   selector: 'app-upload-image',

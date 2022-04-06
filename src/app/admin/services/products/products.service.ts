@@ -23,6 +23,11 @@ export class ProductsService {
   uploadImage(image:any): Observable<any>{
     return this.http.post(this.appURL + this.apiProductsImagesURL, image)
   }
-
+  deleteProduct(id:number): Observable<any>{
+    return this.http.delete(this.appURL + this.apiProductsURL + id)
+  }
+  updateProduct(id:number, product:any): Observable<any>{
+    return this.http.put(this.appURL + this.apiProductsURL  + id, product)
+  }
 
 }
