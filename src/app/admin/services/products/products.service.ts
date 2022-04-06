@@ -10,6 +10,7 @@ export class ProductsService {
   private appURL = 'https://localhost:44341/';
   private apiProductsURL = 'api/Products/'
   private apiProductsImagesURL = 'api/ProductsImages/'
+  private apiUpdateImageURL = 'api/UpdateImage/'
 
 
   constructor(private http: HttpClient) { }
@@ -28,6 +29,9 @@ export class ProductsService {
   }
   updateProduct(id:number, product:any): Observable<any>{
     return this.http.put(this.appURL + this.apiProductsURL  + id, product)
+  }
+  cleanImage(id:any): Observable<any>{
+    return this.http.delete(this.appURL + this.apiUpdateImageURL  + id)
   }
 
 }

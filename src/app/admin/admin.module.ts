@@ -6,14 +6,12 @@ import { AdminComponent } from './admin.component';
 import { ProductsComponent } from './components/products/products.component';
 import { SharedModule } from '../core/shared/shared.module';
 import { MailComponent } from './components/mail/mail.component';
-import { UploadImageComponent } from './components/products/components/upload-image/upload-image.component';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
     ProductsComponent,
-    UploadImageComponent,
     MailComponent
   ],
   imports: [

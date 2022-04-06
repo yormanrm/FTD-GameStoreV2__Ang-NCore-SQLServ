@@ -1,3 +1,27 @@
+.modal{
+  .modal-dialog{
+    .modal-content{
+      .modal-body{
+        .product-photo{
+          .upload-button{
+              .btn-product-text {
+                  padding: 5px;
+                  background-color: rgba(0, 0, 0, 0.5);
+                  color: rgb(255,255,255);
+                  font-size: 15px;
+                  font-weight:600;
+                  &:focus {
+                      border-color: rgba(200, 200, 200, 0);
+                      box-shadow: 0 0 15px 0 rgba(60, 60, 60, 0.5);
+                  }
+              }
+          }
+        }
+      }
+    }
+  }
+}
+
 .list-products{
   .table-responsive {
     display: block;

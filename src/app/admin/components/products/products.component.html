@@ -1,11 +1,11 @@
-<div class="row d-flex justify-content-end mx-5 mx-md-0 mb-3">
-  <div class="col-3 text-end">
+<!--<div class="row d-flex justify-content-end">
+  <div class="col-12 text-end">
 
     <a class="link-primary" role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-formproduct" aria-controls="offcanvas-formproduct">
       <i class="fas fa-plus-circle me-2"></i>Agregar Producto
     </a>
 
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-formproduct" aria-labelledby="offcanvas-formproduct-label">
+    <div class="offcanvas offcanvas-start" data-bs-backdrop="true" tabindex="-1" id="offcanvas-formproduct" aria-labelledby="offcanvas-formproduct-label">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvas-formproduct-label">{{action}} Producto</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" (click)="closeOffcanvas()"></button>
@@ -15,35 +15,35 @@
 
 
           <div class="row d-flex justify-content-center align-items-center mb-4">
-            <div class="col-12">
-                <label for="name-product-input" class="form-label">Nombre Del Producto</label>
+            <div class="col-12 mb-2">
+                <label for="name-product-input" class="form-label text-start">Nombre Del Producto</label>
                 <input type="text" class="form-control text-center" id="name-product-input" placeholder="Juego 'X', Consola 'X', Accesorio 'X'" formControlName="name">
             </div>
-            <div class="col-12">
-                <label for="price-product-input" class="form-label">Precio Del Producto</label>
+            <div class="col-12 mb-2">
+                <label for="price-product-input" class="form-label text-start">Precio Del Producto</label>
                 <div class="input-group p-0" for="price-product-input">
                   <span class="input-group-text input-group-text-right">$</span>
                   <input type="number" class="form-control input-group-text-sides text-end" aria-label="Precio En MXN" formControlName="price">
                   <span class="input-group-text input-group-text-left">.99</span>
                 </div>
             </div>
-            <div class="col-12">
-                <label for="quantity-product-input" class="form-label">Cantidad</label>
+            <div class="col-12 mb-2">
+                <label for="quantity-product-input" class="form-label text-start">Cantidad</label>
                 <input type="number" class="form-control text-end" id="quantity-product-input" min="1" formControlName="quantity">
             </div>
           </div>
 
           <div class="row d-flex justify-content-center align-items-center mb-4">
-            <div class="col-12">
-              <label for="state-product-input" class="form-label">Estado Del Producto</label>
+            <div class="col-12 mb-2">
+              <label for="state-product-input" class="form-label text-start">Estado Del Producto</label>
               <select class="form-select" aria-label="Estado Del Producto" id="state-product-input" formControlName="state">
                 <option class="text-center"selected>...</option>
                 <option class="text-center"value="onsale">En Venta</option>
                 <option class="text-center"value="presale">Preventa</option>
               </select>
             </div>
-            <div class="col-12">
-              <label for="platform-product-input" class="form-label">Plataforma Del Producto</label>
+            <div class="col-12 mb-2">
+              <label for="platform-product-input" class="form-label text-start">Plataforma Del Producto</label>
               <select class="form-select" aria-label="Plataforma Del Producto" id="platform-product-input" formControlName="platform">
                 <option class="text-center"selected>...</option>
                 <option class="text-center"value="xbox">Xbox</option>
@@ -52,8 +52,8 @@
                 <option class="text-center"value="others">Otros</option>
               </select>
             </div>
-            <div class="col-12">
-              <label for="category-product-input" class="form-label">Categoría Del Producto</label>
+            <div class="col-12 mb-2">
+              <label for="category-product-input" class="form-label text-start">Categoría Del Producto</label>
               <select class="form-select" aria-label="Categoría Del Producto" id="category-product-input" formControlName="category">
                 <option class="text-center"selected>...</option>
                 <option class="text-center"value="game">Videojuego</option>
@@ -65,21 +65,38 @@
             </div>
           </div>
 
-          <!--<app-upload-image (onUploadFinished)="uploadFinished($event)"></app-upload-image>-->
-          <div class="row d-flex justify-content-center align-items-center mb-4">
-            <div class="col-12 mb-4">
-              <label class="form-label">Imagen</label>
-              <div *ngIf="action != 'Editar'"><input type="file" #file class="form-control" accept='image/*' id="image-product-input" (change)="uploadFile(file.files)"></div>
-            </div>
-            <div class="col-12 text-center">
-              <img [src]=" imagePath ? imagePath : 'assets/images/no-image/insert-img.png'" width="230" height="230" alt="profile picture" class="img-fluid img-thumbnail">
-            </div>
-          </div>
+
+
+
+
+
+
+
+
+
+
 
 
           <div class="row d-flex justify-content-center align-items-center mb-4">
             <div class="col-12">
-              <label for="description-product-input" class="form-label">Descripción</label>
+
+              <div class="product-photo position-relative text-center">
+                  <div class="upload-button position-absolute bottom-0 start-50 translate-middle-x">
+                      <input type="file" #file (change)="uploadFile(file.files)" style="display: none;" />
+                      <button type="button" class="btn btn-product-text" (click)="file.click()">{{action}} Foto</button>
+                  </div>
+
+                  <img [src]=" imagePath ? imagePath : 'assets/images/no-image/insert-img.png'" width="230" height="230" alt="product-picture" class="img-fluid img-thumbnail">
+              </div>
+
+            </div>
+          </div>
+
+
+
+          <div class="row d-flex justify-content-center align-items-center mb-4">
+            <div class="col-12">
+              <label for="description-product-input" class="form-label text-start">Descripción</label>
               <textarea class="form-control" id="description-product-input" rows="8" formControlName="description"></textarea>
             </div>
           </div>
@@ -94,6 +111,133 @@
       </div>
     </div>
   </div>
+</div>-->
+
+<div class="row d-flex justify-content-end text-end">
+
+  <a role="button" class="link-primary" data-bs-toggle="modal" data-bs-target="#modal-formproduct">
+    <i class="fas fa-plus-circle me-2"></i>Agregar Producto
+  </a>
+
+  <div class="modal fade" id="modal-formproduct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-formproduct-label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title display-6" id="offcanvas-formproduct-label">{{action}} Producto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
+        </div>
+        <div class="modal-body">
+
+          <form [formGroup]="productForm" (ngSubmit)="addProduct()">
+
+
+            <div class="row d-flex justify-content-center align-items-center mb-4">
+              <div class="col-12 mb-2">
+                  <label for="name-product-input" class="form-label text-start">Nombre Del Producto</label>
+                  <input type="text" class="form-control text-center" id="name-product-input" placeholder="Juego 'X', Consola 'X', Accesorio 'X'" formControlName="name">
+              </div>
+              <div class="col-12 mb-2">
+                  <label for="price-product-input" class="form-label text-start">Precio Del Producto</label>
+                  <div class="input-group p-0" for="price-product-input">
+                    <span class="input-group-text input-group-text-right">$</span>
+                    <input type="number" class="form-control input-group-text-sides text-end" aria-label="Precio En MXN" formControlName="price">
+                    <span class="input-group-text input-group-text-left">.99</span>
+                  </div>
+              </div>
+              <div class="col-12 mb-2">
+                  <label for="quantity-product-input" class="form-label text-start">Cantidad</label>
+                  <input type="number" class="form-control text-end" id="quantity-product-input" min="1" formControlName="quantity">
+              </div>
+            </div>
+
+            <div class="row d-flex justify-content-center align-items-center mb-4">
+              <div class="col-12 mb-2">
+                <label for="state-product-input" class="form-label text-start">Estado Del Producto</label>
+                <select class="form-select" aria-label="Estado Del Producto" id="state-product-input" formControlName="state">
+                  <option class="text-center"selected>...</option>
+                  <option class="text-center"value="onsale">En Venta</option>
+                  <option class="text-center"value="presale">Preventa</option>
+                </select>
+              </div>
+              <div class="col-12 mb-2">
+                <label for="platform-product-input" class="form-label text-start">Plataforma Del Producto</label>
+                <select class="form-select" aria-label="Plataforma Del Producto" id="platform-product-input" formControlName="platform">
+                  <option class="text-center"selected>...</option>
+                  <option class="text-center"value="xbox">Xbox</option>
+                  <option class="text-center"value="playstation">PlayStation</option>
+                  <option class="text-center"value="nintendo">Nintendo</option>
+                  <option class="text-center"value="others">Otros</option>
+                </select>
+              </div>
+              <div class="col-12 mb-2">
+                <label for="category-product-input" class="form-label text-start">Categoría Del Producto</label>
+                <select class="form-select" aria-label="Categoría Del Producto" id="category-product-input" formControlName="category">
+                  <option class="text-center"selected>...</option>
+                  <option class="text-center"value="game">Videojuego</option>
+                  <option class="text-center"value="console">Consola</option>
+                  <option class="text-center"value="accessory">Accesorio</option>
+                  <option class="text-center"value="digital">Digitales</option>
+                  <option class="text-center"value="prepay">Prepaid</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row d-flex justify-content-center align-items-center mb-4" *ngIf="action === 'Agregar'">
+              <div class="col-12">
+
+                <div class="product-photo position-relative text-center">
+                    <div class="upload-button position-absolute bottom-0 start-50 translate-middle-x">
+                        <input type="file" #file (change)="uploadFile(file.files)" style="display: none;" />
+                        <button type="button" class="btn btn-product-text" (click)="file.click()">Agregar Foto</button>
+                    </div>
+
+                    <img [src]="imagePath ? imagePath : 'assets/images/no-image/insert-img.png'" width="230" height="230" alt="product-picture" class="img-fluid img-thumbnail">
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="row d-flex justify-content-center align-items-center mb-4" *ngIf="action === 'Editar'">
+              <div class="col-12">
+
+                <div class="product-photo position-relative text-center">
+                    <div class="upload-button position-absolute bottom-0 start-50 translate-middle-x">
+                        <input type="file" #file2 (change)="updateFile(file2.files)" style="display: none;" />
+                        <button type="button" class="btn btn-product-text" (click)="file2.click()">Editar Foto</button>
+                    </div>
+
+                    <img [src]="imagePath ? imagePath : 'assets/images/no-image/insert-img.png'" width="230" height="230" alt="product-picture" class="img-fluid img-thumbnail">
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="row d-flex justify-content-center align-items-center mb-4">
+              <div class="col-12">
+                <label for="description-product-input" class="form-label text-start">Descripción</label>
+                <textarea class="form-control" id="description-product-input" rows="8" formControlName="description"></textarea>
+              </div>
+            </div>
+
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-success btn-lg" [disabled]="productForm.invalid" data-bs-dismiss="modal" aria-label="Close">{{action}}</button>
+            </div>
+
+
+          </form>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
 </div>
 
 <div class="row list-products">
@@ -161,7 +305,7 @@
             <th mat-header-cell *matHeaderCellDef class="text-center"> Acciones </th>
             <td mat-cell *matCellDef="let product" class="text-center">
               <div class="d-flex justify-content-evenly">
-                <i (click)="updateProduct(product)" class="fas fa-edit icon text-warning" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-formproduct" aria-controls="offcanvas-formproduct"></i>
+                <i (click)="updateProduct(product)" class="fas fa-edit icon text-warning" data-bs-toggle="modal" data-bs-target="#modal-formproduct" aria-controls="modal-formproduct"></i>
                 <i (click)="deleteProduct(product.id)" class="fas fa-trash-alt icon text-danger"></i>
               </div>
             </td>

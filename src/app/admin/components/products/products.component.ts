@@ -21,22 +21,21 @@ export class ProductsComponent implements OnInit, AfterViewInit{
   displayedColumns: string[] = ['id', 'name', 'description', 'price', 'quantity', 'state', 'platform', 'category', 'image', 'actions'];
   dataSource = new MatTableDataSource<Products>();
 
-  productForm !: FormGroup;
+  productForm !: FormGroup; //formulario principal
 
-  formData !: any
+  imgData !: any // informacion del file tipo imagen a cargar
+  imagePath !: any; //ruta de la imagen
+  currentImgPath !: any;
+  public response !: {dbPath: ''}; //ruta de la imagen a usar en el subscribe a la db
 
-  imagePath !: any;
+  action = 'Agregar';
+  id : number | undefined; //id para hacer update
 
   public progress !: number;
   public message !: string;
-  public onUploadFinished = new EventEmitter();
-  public response !: {dbPath: ''};
 
   suscription !: Subscription;
 
-  action = 'Agregar';
-
-  id : number | undefined;
 
   constructor(private fb: FormBuilder, private _productsService: ProductsService, private _toastr: ToastrService) {}
 
@@ -67,7 +66,7 @@ export class ProductsComponent implements OnInit, AfterViewInit{
 
 
 
-
+  /*Metodos CRUD para los productos*/
   viewProducts(){
     this.suscription = this._productsService.getProducts().subscribe(data => {
       this.dataSource.data = data;
@@ -77,12 +76,10 @@ export class ProductsComponent implements OnInit, AfterViewInit{
        console.log(error)
     })
   }
-
-
   addProduct(){
 
     if(this.id == undefined){
-      this.suscription = this._productsService.uploadImage(this.formData).subscribe(res => {
+      this.suscription = this._productsService.uploadImage(this.imgData).subscribe(res => {
         this.response = res;
         const newproduct: any = {
           name: this.productForm.get('name')?.value,
@@ -99,7 +96,10 @@ export class ProductsComponent implements OnInit, AfterViewInit{
           this.viewProducts();
           this.productForm.reset();
         })
-      })
+      }, error => {
+          this._toastr.error('Ocurrio Un Error', 'Opss!');
+          console.log(error);
+        })
     }
     else{
 
@@ -111,26 +111,29 @@ export class ProductsComponent implements OnInit, AfterViewInit{
         platform: this.productForm.get('platform')?.value,
         category: this.productForm.get('category')?.value,
         description: this.productForm.get('description')?.value,
-        image: this.response.dbPath
+        image: this.currentImgPath
       };
 
       modproduct.id = this.id;
+
       this.suscription = this._productsService.updateProduct(this.id, modproduct).subscribe(data => {
         this.productForm.reset();
         this.action = 'Agregar';
         this.id  = undefined;
+        this.imagePath = null;
         this._toastr.info('Producto Actualizado', 'Hecho');
         this.viewProducts();
-      },
-      error => {
-        this._toastr.error('Ocurrio Un Error', 'Opss!');
-        console.log(error);
-      })
+        console.log(modproduct)
+
+        this.suscription = this._productsService.uploadImage(this.imgData).subscribe()
+
+      }, error => {
+          this._toastr.error('Ocurrio Un Error', 'Opss!');
+          console.log(error);
+        });
     }
 
   }
-
-
   updateProduct(product:any){
     this.action = 'Editar';
     this.id = product.id;
@@ -143,10 +146,9 @@ export class ProductsComponent implements OnInit, AfterViewInit{
       category: product.category,
       description: product.description,
     })
+    this.currentImgPath = product.image;
     this.imagePath = `https://localhost:44341/${product.image}`;
   }
-
-
   deleteProduct(id: number){
     this.suscription = this._productsService.deleteProduct(id).subscribe(data =>{
       this._toastr.success('El Producto Fue Eliminado', 'Hecho');
@@ -159,14 +161,13 @@ export class ProductsComponent implements OnInit, AfterViewInit{
   }
 
 
-
-  public uploadFile = (files : any) => {
+  /*Metodos Para Las Imagenes*/
+  public uploadFile(files : any){
     if (files.length === 0) {
       return;
     }
 
     var reader = new FileReader();
-    this.imagePath = files;
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) => {
       this.imagePath = reader.result;
@@ -175,20 +176,39 @@ export class ProductsComponent implements OnInit, AfterViewInit{
     let fileToUpload = <File>files[0];
     const formData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
-    this.uploadFinished(formData);
+    this.imgData = formData;
   }
-
+  public updateFile(files : any){
+    this.suscription = this._productsService.cleanImage(this.id).subscribe(res =>{
+      if (files.length === 0) {
+        return;
+      }
+      var reader = new FileReader();
+      reader.readAsDataURL(files[0]);
+      reader.onload = (_event) => {
+        this.imagePath = reader.result;
+      }
+      let fileToUpload = <File>files[0];
+      const path = "Resources\\Images\\Products\\";
+      const formData = new FormData();
+      formData.append('file', fileToUpload, fileToUpload.name);
+      this.imgData = formData;
+      this.currentImgPath = path + fileToUpload.name;
+    }, error =>{
+      this._toastr.error('Ocurrio Un Error', 'Opss!');
+      console.log(error);
+    });
+  }
   ImgPath(serverPath: string){
     return `https://localhost:44341/${serverPath}`;
   }
-  uploadFinished(data : any){
-    this.formData = data;
-  }
 
 
 
 
-  closeOffcanvas(){
+
+  /*Metodo Para Cerrar Modal y Reinciar Formulario*/
+  closeModal(){
     this.productForm.reset();
     this.id  = undefined;
     this.action = 'Agregar';
