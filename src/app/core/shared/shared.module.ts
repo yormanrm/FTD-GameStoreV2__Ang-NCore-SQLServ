@@ -9,6 +9,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTabsModule} from '@angular/material/tabs';
 
 import { ToastrModule } from 'ngx-toastr';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 
@@ -29,9 +32,16 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatTabsModule
+    MatTabsModule,
+    HeaderComponent,
+    FooterComponent,
+    NotFoundComponent
   ],
-  declarations: [],
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    NotFoundComponent
+  ],
   providers: []
 })
 
