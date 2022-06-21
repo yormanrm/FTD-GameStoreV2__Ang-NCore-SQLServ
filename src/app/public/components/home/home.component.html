@@ -1,0 +1,123 @@
+<div id="carrusel-publicidad" class="carousel slide d-none d-md-block mb-5" data-bs-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-bs-target="#carrusel-publicidad" data-bs-slide-to="0" class="active"></li>
+    <li data-bs-target="#carrusel-publicidad" data-bs-slide-to="1"></li>
+    <li data-bs-target="#carrusel-publicidad" data-bs-slide-to="2"></li>
+    <li data-bs-target="#carrusel-publicidad" data-bs-slide-to="3"></li>
+  </ol>
+  <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="5000">
+          <div class="embed-responsive embed-responsive-16by9">
+              <a href="***">
+                  <video class="embed-responsive-item" loop autoplay [muted]="true">
+                      <source src="../../../../assets/promo/demons-promo.mp4" type="video/mp4">
+                  </video>
+              </a>
+          </div>
+          <div class="carousel-caption d-none d-md-block">
+              <h5>Demons Souls</h5>
+              <p>Some representative placeholder content for the first slide.</p>
+          </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="5000">
+          <div class="embed-responsive embed-responsive-16by9">
+              <a href="***">
+                  <video class="embed-responsive-item" loop autoplay [muted]="true">
+                      <source src="../../../../assets/promo/halo-promo.mp4" type="video/mp4">
+                  </video>
+              </a>
+          </div>
+          <div class="carousel-caption d-none d-md-block">
+              <h5>Halo Infinite</h5>
+              <p>Some representative placeholder content for the second slide.</p>
+          </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="5000">
+          <div class="embed-responsive embed-responsive-16by9">
+              <a href="***">
+                  <video class="embed-responsive-item" loop autoplay [muted]="true">
+                      <source src="../../../../assets/promo/spiderman-promo.mp4" type="video/mp4">
+                  </video>
+              </a>
+          </div>
+          <div class="carousel-caption d-none d-md-block">
+              <h5>Spiderman Miles Morales</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+          </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="5000">
+          <div class="embed-responsive embed-responsive-16by9">
+              <a href="***">
+                  <video class="embed-responsive-item" loop autoplay [muted]="true">
+                      <source src="../../../../assets/promo/village-promo.mp4" type="video/mp4">
+                  </video>
+              </a>
+          </div>
+          <div class="carousel-caption d-none d-md-block">
+              <h5>Resident Evil Village</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+          </div>
+      </div>
+  </div>
+
+
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carrusel-publicidad" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carrusel-publicidad" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+
+
+
+</div>
+
+<section class="container" id="main-contenedor">
+  <div class="row">
+      <section class="col-12 col-md-8">
+        <div class="row">
+
+          <div class="col categoria">
+
+            <a href="#" [routerLink]="['/products']">Xbox</a>
+            <app-widget-category [plat]="'Xbox'"></app-widget-category>
+
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col categoria">
+
+            <a href="#" [routerLink]="['/products']">Playstation</a>
+            <app-widget-category [plat]="'Playstation'"></app-widget-category>
+
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col categoria">
+
+            <a href="#" [routerLink]="['/products']">Nintendo</a>
+            <app-widget-category [plat]="'Nintendo'"></app-widget-category>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <aside class="col-12 col-md-4 text-center">
+          <h2 id="asidetext" class="mb-3">Ultimas Publicaciones</h2>
+          <div class="row mb-2">
+            <div class="fb-page" data-href="https://www.facebook.com/gameplanetmx" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/gameplanetmx" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/gameplanetmx">Gameplanet</a></blockquote></div>          <hr>
+          </div>
+      </aside>
+  </div>
+</section>

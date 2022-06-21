@@ -1,0 +1,26 @@
+<div class="d-flex flex-wrap align-items-center border-bottom pb-4 px-4 mt-4">
+
+  <div class="col-12 col-lg-3 col-md-4 col-sm-6 px-2 mb-3" *ngFor="let product of products | byPlatform:platform">
+    <div class="card product-card">
+
+      <a class="card-img-top d-block overflow-hidden" [routerLink]="['/viewproduct',product.id]" style="cursor: pointer;"><img class="img-fluid img-product" [src]="ImgPath(product.image)"></a>
+
+      <div class="card-body py-3">
+
+        <h3 class="product-title text-center">{{product.name}}</h3>
+          <div class="">
+              <div class="product-price text-center d-block"><strong class="label">Precio:   </strong><span>${{product.price}}</span></div>
+          </div>
+
+      </div>
+      <div class="text-center btn-vista-container">
+
+        <a class="btn-vista" [routerLink]="['/viewproduct',product.id]" style="cursor: pointer;">
+        <i class="bi bi-eye align-middle me-1"></i>Vista Rapida</a>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

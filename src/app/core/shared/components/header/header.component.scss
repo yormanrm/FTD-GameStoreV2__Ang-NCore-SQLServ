@@ -1,0 +1,30 @@
+.navbar{
+  .navbar-brand{
+    .img-logo{
+      max-width: 100x !important;
+      max-height: 30px !important;
+    }
+  }
+  .actions{
+    .action{
+      font-size: 24px;
+      color: white;
+    }
+  }
+}
+@media (min-width: 991.98px) {
+  .navbar{
+    .navbar-brand{
+      .img-logo{
+        max-width: 225x !important;
+        max-height: 64px !important;
+      }
+    }
+    .actions{
+      .action{
+        font-size: 34px;
+        color: white;
+      }
+    }
+  }
+}
